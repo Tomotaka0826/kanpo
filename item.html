@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITEM - 漢方ストア</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+        function addToCart(productName, price) {
+            alert(productName + 'がカートに追加されました。価格: ¥' + price);
+            // ここにカートに追加するロジックを追加できます
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="search-icon"><i class="fas fa-search"></i></div>
+            <ul class="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="item.html">ITEM</a></li>
+                <li><a href="category.html">CATEGORY</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+            </ul>
+            <div class="right-menu">
+                <div class="login-dropdown">
+                    <a href="#" class="login-btn">LOGIN</a>
+                    <div class="dropdown-content">
+                        <a href="login.html">ログイン</a>
+                        <a href="register.html">新規会員登録</a>
+                    </div>
+                </div>
+                <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i>CART</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>ITEMページ</h1>
+       
+        <section class="products">
+            <div class="product-grid">
+                <div class="product-card">
+                    <a href="product1.html">
+                        <img src="product1.jpg" alt="良温茶">
+                        <h3>【良温茶】からだぽかぽかブレンド</h3>
+                        <p class="price">¥900</p>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <a href="product2.html">
+                        <img src="product2.jpg" alt="産後茶">
+                        <h3>【きむらの産後茶】産後のケア、授乳期に</h3>
+                        <p class="price">¥2,400</p>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <a href="product3.html">
+                        <img src="product3.jpg" alt="参鶏湯キット">
+                        <h3>【参鶏湯キット】ご家庭で簡単本格的な味</h3>
+                        <p class="price">¥800</p>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <a href="product4.html">
+                        <img src="product4.jpg" alt="漢方ブレンド茶">
+                        <h3>【漢方ブレンド茶】季節の養生茶</h3>
+                        <p class="price">¥1,200</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-buttons">
+            <button class="icon-button"><i class="fas fa-envelope"></i></button>
+            <div class="info-dropdown">
+                <button class="icon-button"><i class="fas fa-info-circle"></i></button>
+                <div class="dropdown-content">
+                    <a href="#">特定商取引法に関する表記</a>
+                    <a href="#">利用規約</a>
+                    <a href="#">プライバシーポリシー</a>
+                </div>
+            </div>
+            <button class="icon-button"><i class="fas fa-share-alt"></i></button>
+        </div>
+        <div class="stores-powered">
+            <p>powered by <img src="stores-logo.png" alt="STORES" class="stores-logo"></p>
+        </div>
+        <div class="social-links">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fas fa-home"></i></a>
+        </div>
+    </footer>
+</body>
+</html> 
