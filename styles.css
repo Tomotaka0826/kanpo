@@ -275,6 +275,18 @@ footer {
     background-color: var(--accent-color);
 }
 
+.footer-buttons .icon-button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer-buttons .icon-button:hover {
+    color: var(--accent-color);
+}
+
 .stores-powered {
     text-align: center;
     margin-bottom: 1.5rem;
@@ -488,4 +500,42 @@ footer {
     .footer-buttons .icon-button {
         margin-bottom: 10px;
     }
+}
+
+/* お問い合わせページのスタイル */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
 } 
