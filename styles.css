@@ -26,6 +26,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    position: relative;
     background-color: var(--common-bg);
     background-image: repeating-linear-gradient(
         90deg,
@@ -39,9 +40,15 @@ nav {
 }
 
 .nav-menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
+    justify-content: center;
     list-style: none;
     gap: 2rem;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-menu a {
@@ -460,25 +467,37 @@ footer {
 
 @media (max-width: 768px) {
     nav {
-        flex-direction: column;
-        align-items: flex-start;
+        padding: 0.5rem;
     }
 
     .nav-menu {
-        flex-direction: column;
         gap: 1rem;
     }
 
     .product-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        padding: 1rem;
     }
 
     .product-card {
-        margin: 0 auto;
+        padding: 0.5rem;
+    }
+
+    .footer-buttons {
+        gap: 0.5rem;
+    }
+
+    .home-content {
+        padding: 0 1rem;
+    }
+
+    .home-description {
+        margin: 2rem 0;
     }
 
     .about-page {
-        padding: 10px;
+        padding: 1rem;
     }
 
     .about-page h1 {
@@ -499,6 +518,31 @@ footer {
 
     .footer-buttons .icon-button {
         margin-bottom: 10px;
+    }
+}
+
+/* 小さいスマートフォン向けの調整 */
+@media (max-width: 480px) {
+    .nav-menu {
+        font-size: 0.9rem;
+        gap: 0.8rem;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-item {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .item-details h3 {
+        font-size: 0.8rem;
+    }
+
+    .item-details p {
+        font-size: 0.7rem;
     }
 }
 
@@ -538,4 +582,120 @@ footer {
 
 .contact-form button:hover {
     background-color: #0056b3;
+}
+
+/* カートのレイアウト調整 */
+.cart-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem;
+    background-color: var(--common-bg);
+    background-image: repeating-linear-gradient(
+        90deg,
+        var(--common-bg),
+        var(--common-bg) 100px,
+        rgba(166, 123, 91, 0.05) 100px,
+        rgba(166, 123, 91, 0.05) 101px
+    );
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--wood-shadow);
+}
+
+.cart-item img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 4px;
+}
+
+.item-details {
+    flex-grow: 1;
+    position: relative;
+}
+
+.item-details h3 {
+    font-size: 1.1rem;
+    margin: 0 0 10px 0;
+    color: var(--main-color);
+}
+
+.item-details p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* 購入するボタンを左下に配置 */
+.checkout-btn {
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    float: none;
+    clear: both;
+}
+
+.checkout-btn:hover {
+    background-color: var(--accent-color);
+}
+
+/* カートの合計金額部分 */
+.cart-summary {
+    margin-top: 20px;
+    text-align: right;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--wood-shadow);
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 10px;
+    margin-right: 10px;
+}
+
+.remove-btn:hover {
+    color: #ff0000;
+}
+
+/* カートボタンを右端に配置 */
+.cart-btn {
+    position: relative;
+    margin-left: auto; /* 左のマージンを自動に設定して右寄せ */
+    margin-right: 0; /* 右のマージンを0に設定 */
+}
+
+/* 左側の空白用のダミー要素 */
+.nav-spacer {
+    width: 100px;
+    visibility: hidden; /* 見えないようにする */
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    background-color: #ff0000;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    min-width: 15px;
+    text-align: center;
 } 
