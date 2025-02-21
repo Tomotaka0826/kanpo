@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>決済処理 - 漢方ストア</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-spacer"></div>
+            <ul class="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="item.html">ITEM</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+            </ul>
+            <a href="cart.html" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>CART
+                <span id="cart-count" class="cart-count">0</span>
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="checkout-container">
+                <h1>ご注文内容の確認</h1>
+                <div id="cart-summary"></div>
+                <form action="/create-checkout-session" method="POST">
+                    <button type="submit" id="checkout-button" class="checkout-btn">決済に進む</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>powered by 漢方ストア</p>
+    </footer>
+
+    <script>
+        // カートの内容を表示
+        window.onload = function() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartSummary = document.getElementById('cart-summary');
+            let total = 0;
+
+            cart.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('checkout-item');
+                itemElement.innerHTML = `
+                    <h3>${item.name}</h3>
+                    <p>¥${item.price}</p>
+                `;
+                cartSummary.appendChild(itemElement);
+                total += item.price;
+            });
+
+            const totalElement = document.createElement('div');
+            totalElement.classList.add('checkout-total');
+            totalElement.innerHTML = `<h3>合計: ¥${total}</h3>`;
+            cartSummary.appendChild(totalElement);
+        };
+    </script>
+</body>
+</html> 

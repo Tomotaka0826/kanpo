@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>決済キャンセル - 漢方ストア</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-spacer"></div>
+            <ul class="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="item.html">ITEM</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+            </ul>
+            <a href="cart.html" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>CART
+                <span id="cart-count" class="cart-count">0</span>
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="cancel-message">
+                <h1>決済がキャンセルされました</h1>
+                <p>他の商品もご覧になりますか？</p>
+                <p>商品一覧からお好みの商品をお探しください。</p>
+                <div class="button-container">
+                    <a href="cart.html" class="return-cart">カートに戻る</a>
+                    <a href="item.html" class="back-to-shop">商品一覧へ</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>powered by 漢方ストア</p>
+    </footer>
+
+    <script>
+        // カート内の商品数を表示
+        window.onload = function() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartCount = document.getElementById('cart-count');
+            if (cartCount) {
+                cartCount.textContent = cart.length;
+            }
+        };
+    </script>
+</body>
+</html> 
