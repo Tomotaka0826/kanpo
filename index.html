@@ -10,22 +10,16 @@
 <body>
     <header>
         <nav>
-            <div class="search-icon"><i class="fas fa-search"></i></div>
+            <div class="nav-spacer"></div>
             <ul class="nav-menu">
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="item.html">ITEM</a></li>
                 <li><a href="about.html">ABOUT</a></li>
             </ul>
-            <div class="right-menu">
-                <div class="login-dropdown">
-                    <a href="#" class="login-btn">LOGIN</a>
-                    <div class="dropdown-content">
-                        <a href="login.html">ログイン</a>
-                        <a href="register.html">新規会員登録</a>
-                    </div>
-                </div>
-                <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i>CART</a>
-            </div>
+            <a href="cart.html" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>CART
+                <span id="cart-count" class="cart-count">0</span>
+            </a>
         </nav>
         
         <div class="logo">

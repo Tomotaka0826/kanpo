@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <script>
+        // カートの内容を保存するための配列
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+        function addToCart(productName, price) {
+            // 商品をカートに追加
+            cart.push({ name: productName, price: price });
+            alert(productName + 'がカートに追加されました。価格: ¥' + price);
+            localStorage.setItem('cart', JSON.stringify(cart)); // カートの内容をローカルストレージに保存
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>参鶏湯キット - 漢方ストア</title>
@@ -10,22 +21,16 @@
 <body>
     <header>
         <nav>
-            <div class="search-icon"><i class="fas fa-search"></i></div>
+            <div class="nav-spacer"></div>
             <ul class="nav-menu">
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="item.html">ITEM</a></li>
                 <li><a href="about.html">ABOUT</a></li>
             </ul>
-            <div class="right-menu">
-                <div class="login-dropdown">
-                    <a href="#" class="login-btn">LOGIN</a>
-                    <div class="dropdown-content">
-                        <a href="login.html">ログイン</a>
-                        <a href="register.html">新規会員登録</a>
-                    </div>
-                </div>
-                <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i>CART</a>
-            </div>
+            <a href="cart.html" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>CART
+                <span id="cart-count" class="cart-count">0</span>
+            </a>
         </nav>
     </header>
 
