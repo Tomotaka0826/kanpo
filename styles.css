@@ -21,30 +21,24 @@ body {
     color: #4a4a4a;
 }
 
+/* ヘッダーのスタイル */
+header {
+    padding: 20px 0;
+    background-color: var(--common-bg);
+    margin-bottom: 30px;
+}
+
 nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    position: relative;
-    background-color: var(--common-bg);
-    background-image: repeating-linear-gradient(
-        90deg,
-        var(--common-bg),
-        var(--common-bg) 100px,
-        rgba(166, 123, 91, 0.05) 100px,
-        rgba(166, 123, 91, 0.05) 101px
-    );
-    border-bottom: 2px solid var(--main-color);
-    box-shadow: 0 2px 4px var(--wood-shadow);
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .nav-menu {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
-    justify-content: center;
     list-style: none;
     gap: 2rem;
     margin: 0;
@@ -52,30 +46,15 @@ nav {
 }
 
 .nav-menu a {
-    position: relative;
-    padding: 0.5rem 0;
+    text-decoration: none;
     color: var(--main-color);
     font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
 }
 
-.nav-menu a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--main-color);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.nav-menu a:hover::after {
-    transform: scaleX(1);
-}
-
-.nav-menu a {
-    text-decoration: none;
+.nav-menu a:hover {
+    color: var(--accent-color);
 }
 
 .right-menu {
@@ -184,34 +163,28 @@ nav {
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
+/* ロゴセクションのスタイル */
 .logo {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
     text-align: center;
-    padding: 6rem 0;
-    background-color: var(--common-bg);
-    background-image: repeating-linear-gradient(
-        90deg,
-        var(--common-bg),
-        var(--common-bg) 100px,
-        rgba(166, 123, 91, 0.05) 100px,
-        rgba(166, 123, 91, 0.05) 101px
-    );
-    border-bottom: 1px solid var(--main-color);
 }
 
 .logo img {
     max-width: 200px;
     height: auto;
-    margin: 4rem 0;
+    margin: 0 0 40px;
 }
 
 .home-content {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 20px;
 }
 
 .shipping-banner {
-    margin: 5rem 0;
+    margin: 40px 0;
 }
 
 .shipping-img {
@@ -368,29 +341,44 @@ footer {
 
 .product-detail {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    gap: 20px;
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-image {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .product-image img {
-    max-width: 300px;
+    width: 100%;
+    height: auto;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--wood-shadow);
 }
 
 .product-info {
-    max-width: 400px;
+    width: 100%;
     padding: 20px;
+    background-color: var(--common-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--wood-shadow);
 }
 
 .product-info h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    color: var(--main-color);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
 }
 
 .product-info .price {
-    font-size: 20px;
-    color: #A67B5B;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--accent-color);
     margin-bottom: 15px;
 }
 
@@ -676,8 +664,8 @@ footer {
 
 /* 左側の空白用のダミー要素 */
 .nav-spacer {
-    width: 100px;
-    visibility: hidden; /* 見えないようにする */
+    width: 0;
+    visibility: hidden;
 }
 
 .success-message {
@@ -763,7 +751,9 @@ footer {
 }
 
 stripe-buy-button {
-    margin: 20px 0;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
     display: block;
 }
 
@@ -771,4 +761,41 @@ stripe-buy-button {
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+/* タブレット以上のサイズでレイアウトを変更 */
+@media (min-width: 768px) {
+    .product-detail {
+        flex-direction: row;
+        gap: 40px;
+        padding: 40px;
+    }
+
+    .product-image {
+        flex: 1;
+        max-width: none;
+    }
+
+    .product-info {
+        flex: 1;
+    }
+
+    .product-info h1 {
+        font-size: 2rem;
+    }
+}
+
+/* スマートフォン用のスタイル */
+@media (max-width: 767px) {
+    header {
+        padding: 10px 0;
+    }
+
+    .nav-menu {
+        gap: 1rem;
+    }
+
+    .nav-menu a {
+        font-size: 1rem;
+    }
 } 
