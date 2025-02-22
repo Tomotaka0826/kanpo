@@ -1,22 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <script>
-        // カートの内容を保存するための配列
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
-        function addToCart(productName, price) {
-            // 商品をカートに追加
-            cart.push({ name: productName, price: price });
-            alert(productName + 'がカートに追加されました。価格: ¥' + price);
-            localStorage.setItem('cart', JSON.stringify(cart)); // カートの内容をローカルストレージに保存
-        }
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>参鶏湯キット - 漢方ストア</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 </head>
 <body>
     <header>
@@ -27,10 +17,6 @@
                 <li><a href="item.html">ITEM</a></li>
                 <li><a href="about.html">ABOUT</a></li>
             </ul>
-            <a href="cart.html" class="cart-btn">
-                <i class="fas fa-shopping-cart"></i>CART
-                <span id="cart-count" class="cart-count">0</span>
-            </a>
         </nav>
     </header>
 
@@ -41,8 +27,12 @@
         <div class="product-info">
             <h1>参鶏湯キット</h1>
             <p class="price">価格: ¥800</p>
-            <p>詳細な説明文がここに入ります。参鶏湯キットは家庭で簡単に本格的な味を楽しめます。</p>
-            <button class="add-to-cart" onclick="addToCart('参鶏湯キット', 800)">カートに入れる</button>
+            <p>詳細な説明文がここに入ります。参鶏湯キットで本格的な味をご家庭で。</p>
+            <stripe-buy-button
+                buy-button-id="buy_btn_1QvBZTJiZkSZSi89nS6CjFNW"
+                publishable-key="pk_live_51QupnIJiZkSZSi89CBRvJ09wX31fW5lvsU2qTeqrnOtePm3OdpCdTggC6gYwqvPkaTNqIgjm2143kgffIBsv3yDp00sd2NRsfq"
+            >
+            </stripe-buy-button>
         </div>
     </main>
 

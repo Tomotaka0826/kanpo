@@ -3,7 +3,7 @@ require 'sinatra'
 require 'json'
 require 'dotenv/load'
 
-# Stripeのテスト用APIキーを設定
+# テスト用のAPIキーに変更
 Stripe.api_key = 'sk_test_51QupnIJiZkSZSi89mc0WGcr47a4sbej2uEfqnhJWX0byB4W8SgNpJ3QFS1UhXMyUF0nUZpTVITjSh3Jy2DmrB6An00VohY1azE'
 
 set :static, true
@@ -11,6 +11,14 @@ set :port, 4242
 set :public_folder, 'public'
 
 YOUR_DOMAIN = 'http://localhost:4242'
+
+# 商品IDの定義
+PRODUCTS = {
+  '良温茶' => 'prod_RoZQTiPC35unNq',
+  '産後茶' => 'prod_RoZQAfEwY2PRpa',
+  '参鶏湯' => 'prod_Roo9UiTsemshsJ',
+  '漢方ブレンド茶' => 'prod_RooBcXwYKvvkkW'
+}
 
 # セキュリティヘッダーの設定
 before do
@@ -38,9 +46,7 @@ post '/create-checkout-session' do
         {
           price_data: {
             currency: 'jpy',
-            product_data: {
-              name: item['name']
-            },
+            product: PRODUCTS[item['name']],
             unit_amount: item['price']
           },
           quantity: 1

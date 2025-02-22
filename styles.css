@@ -674,30 +674,10 @@ footer {
     color: #ff0000;
 }
 
-/* カートボタンを右端に配置 */
-.cart-btn {
-    position: relative;
-    margin-left: auto; /* 左のマージンを自動に設定して右寄せ */
-    margin-right: 0; /* 右のマージンを0に設定 */
-}
-
 /* 左側の空白用のダミー要素 */
 .nav-spacer {
     width: 100px;
     visibility: hidden; /* 見えないようにする */
-}
-
-.cart-count {
-    position: absolute;
-    top: -8px;
-    left: -8px;
-    background-color: #ff0000;
-    color: white;
-    border-radius: 50%;
-    padding: 2px 6px;
-    font-size: 12px;
-    min-width: 15px;
-    text-align: center;
 }
 
 .success-message {
@@ -780,4 +760,15 @@ footer {
 
 .return-cart:hover {
     background-color: var(--accent-color);
+}
+
+stripe-buy-button {
+    margin: 20px 0;
+    display: block;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 } 

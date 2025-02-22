@@ -16,10 +16,6 @@
                 <li><a href="item.html">ITEM</a></li>
                 <li><a href="about.html">ABOUT</a></li>
             </ul>
-            <a href="cart.html" class="cart-btn">
-                <i class="fas fa-shopping-cart"></i>CART
-                <span id="cart-count" class="cart-count">0</span>
-            </a>
         </nav>
     </header>
 
@@ -39,16 +35,5 @@
     <footer>
         <p>powered by 漢方ストア</p>
     </footer>
-
-    <script>
-        // 購入完了時にカートを空にする
-        window.onload = function() {
-            localStorage.removeItem('cart');
-            const cartCount = document.getElementById('cart-count');
-            if (cartCount) {
-                cartCount.textContent = '0';
-            }
-        };
-    </script>
 </body>
 </html> 
